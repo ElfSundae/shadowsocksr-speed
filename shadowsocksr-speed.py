@@ -264,6 +264,7 @@ def connect_ssr(ssr):
 
     if test_option['ping']:
         ping_len="7" if isIP(result['host']) else "8"
+        ping_len="7"
         cmd="ping -c 5 %s |grep 'time=' | awk '{print $%s}' |cut -b 6-"% (result['host'],ping_len)
         ping_pc=os.popen(cmd).readlines()
         if(len(ping_pc)):
